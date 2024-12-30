@@ -30,14 +30,13 @@ jobs:
         #Legacy includes:
         include:
           - os: macos-latest
-            node_version:
-              - 10
+            node_version: 10
             architecture: arm
-          - os:
-              - ubuntu-latest
-              - windows-latest
-            node_version:
-              - 10
+          - os: ubuntu-latest
+            node_version: 10
+            architecture: x64
+          - os: windows-latest
+            node_version: 10
             architecture: x64
     name: Node ${{ matrix.node_version }} - ${{ matrix.architecture }} on ${{ matrix.os }}
     steps:
@@ -46,6 +45,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node_version }}
+          architecture: ${{ matrix.architecture }}
       - run: npm run setup
       - run: npm ci
       - run: npm run compile
