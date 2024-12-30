@@ -115,6 +115,10 @@
     "Node10": {
       "target": "lib/oc-setup-task.js",
       "workingDirectory": "$(currentDirectory)"
+    },
+    "Node20": {
+      "target": "lib/oc-setup-task.js",
+      "workingDirectory": "$(currentDirectory)"
     }
   }
 }
