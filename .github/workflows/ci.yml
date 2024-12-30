@@ -22,10 +22,23 @@ jobs:
           - macos-latest
           - windows-latest
         node_version:
-          - 10
+          - 14
+          - 16
           - 20
         architecture:
           - x64
+        #Legacy includes:
+        include:
+          - os: macos-latest
+            node_version:
+              - 10
+            architecture: arm
+          - os:
+              - ubuntu-latest
+              - windows-latest
+            node_version:
+              - 10
+            architecture: x64
     name: Node ${{ matrix.node_version }} - ${{ matrix.architecture }} on ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
